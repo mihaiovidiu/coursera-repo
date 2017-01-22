@@ -1,0 +1,18 @@
+.info {
+    font-style: italic;
+    font-size: 0.8em;
+}
+.message-warning {
+    color: red;
+}
+.message-ok {
+    color: green;
+}
+
+.input-warning {
+    border: 1px solid red;
+}
+
+.input-ok {
+    border: 1px solid green;
+}
