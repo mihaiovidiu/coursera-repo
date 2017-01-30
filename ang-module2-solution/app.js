@@ -11,6 +11,12 @@ function ToBuyController(ShoppingListCheckOffService) {
     var ctrBuy = this;
 
     ctrBuy.shoppingList = ShoppingListCheckOffService.toBuyList;
+    ctrBuy.buyItem = ShoppingListCheckOffService.buyItem;
+    ctrBuy.addToList = function () {
+        ShoppingListCheckOffService.addToList(ctrBuy.nameToAdd, ctrBuy.quantityToAdd)
+        ctrBuy.nameToAdd = "";
+        ctrBuy.quantityToAdd = "";
+    };
 
 }
 
@@ -19,38 +25,63 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
     var ctrBought = this;
 
     ctrBought.shoppingList = ShoppingListCheckOffService.boughtList;
+    ctrBought.backToList = ShoppingListCheckOffService.backToList;
 
 }
 
 function ShoppingListCheckOffService() {
     var service = this;
 
-    var list = [
+    var toBuyList = [
         {
             name: "cookies",
-            quantity: 10,
-            bought: false
+            quantity: 10
         },
         {
-            name: "fruits",
-            quantity: 15,
-            bought: false
-        },
+            name: "bananas",
+            quantity: 15        },
         {
             name: "onions",
+            quantity: 2        },
+        {
+            name: "oranges",
+            quantity: 7        
+        },
+        {
+            name: "fish",
             quantity: 2,
-            bought: true 
-        }
+        },
+        {
+            name: "tomatos",
+            quantity: 12,
+        },
     ];
 
-    service.toBuyList = list.filter(function(element){
-            return !element.bought;
-        });
+    var boughtList = [];
+
+    service.toBuyList = toBuyList;
   
 
-    service.boughtList = list.filter(function(element){
-            return element.bought;
+    service.boughtList = boughtList;
+
+    service.buyItem = function(itemIndex) {
+        var item = toBuyList[itemIndex];
+        toBuyList.splice(itemIndex, 1);
+        boughtList.push(item);
+    }
+
+    service.backToList = function(itemIndex) {
+        var item = boughtList[itemIndex];
+        boughtList.splice(itemIndex, 1);
+        toBuyList.push(item);
+    }
+
+    service.addToList = function(itemName, itemQuantity) {
+        toBuyList.push({
+            name: itemName,
+            quantity: itemQuantity
         });
+    }
 }
 
 })();

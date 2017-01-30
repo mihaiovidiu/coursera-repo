@@ -16,18 +16,29 @@
     <div class="col-md-6" ng-controller="ToBuyController as ctrBuy">
      <h2>To Buy:</h2>
      <ul>
-       <li ng-repeat="item in ctrBuy.shoppingList">Buy {{item.quantity}} {{item.name}} <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <li ng-repeat="item in ctrBuy.shoppingList"><div>Buy {{item.quantity}} {{item.name}}</div>
+       <button class="btn btn-default" ng-click="ctrBuy.buyItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
      </ul>
-     <div class="emptyMessage">Everything is bought!</div>
+     <div class="emptyMessage" ng-if="ctrBuy.shoppingList.length == 0">Everything is bought!</div>
+     <div>
+       <input type="text" placeholder="Item name" ng-model="ctrBuy.nameToAdd">
+       <input type="text" placeholder="Item quantity" ng-model="ctrBuy.quantityToAdd">
+       <button class="btn btn-success" ng-click="ctrBuy.addToList();">Add to list</button>
+     </div>
     </div>
 
     <!-- Already Bought List -->
     <div class="col-md-6" ng-controller="AlreadyBoughtController as ctrBought">
      <h2>Already Bought:</h2>
      <ul>
-       <li>Bought 10 cookies</li>
+       <li ng-repeat="item in ctrBought.shoppingList">
+         <div>
+           Bought {{item.quantity}} {{item.name}}            
+         </div>
+          <button class="btn btn-default" ng-click="ctrBought.backToList($index);"><span class="glyphicon glyphicon-remove"></span> Back To List</button>
+        </li>
      </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-if="ctrBought.shoppingList.length == 0">Nothing bought yet.</div>
     </div>
   </div>
 </div>
