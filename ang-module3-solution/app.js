@@ -9,7 +9,7 @@
    function FoundItemsDirective() {
        var ddo = {
             restrict: 'E',
-            templateUrl: '/snippets/foundMenuItems.html',
+            templateUrl: 'foundMenuItems.html',
             scope: {
                 foundItems: '<',
                 onRemove: '&',
@@ -68,7 +68,7 @@
                {
                    foundItems = [];
                }
-                           
+
                return foundItems;
            }, function errorCallback(response){
                // do something with the response
