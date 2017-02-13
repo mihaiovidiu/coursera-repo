@@ -15,7 +15,36 @@
         // Home page
         .state('home', {
             url: '/',
-            template: 'HOME TEMPLATE' 
+            templateUrl: 'src/menuApp/templates/homeView.template.html' 
+        })
+
+        // Categories view
+        .state('categories', {
+            url: '/categories',
+            templateUrl: 'src/menuApp/templates/categoriesView.template.html',
+            controller: 'CategoriesViewController as ctrl',
+            resolve: {
+                categories: ['MenuDataService', function(MenuDataService){
+                    return MenuDataService.getAllCategories();
+                }]
+            } 
+            
+        })
+
+        // Items view
+        .state('items', {
+            url: '/items/{categoryShortName}',
+            templateUrl: 'src/menuApp/templates/itemsView.template.html',
+            controller: 'ItemsViewController as ctrl',
+            resolve: {
+                items: ['MenuDataService', function (MenuDataService){
+                    return MenuDataService.getItemsForCategory();
+                }],
+                itemsCategory: ['$stateParams', function($stateParams){
+                    return getItemsCategory($stateParams.categoryShortName);
+                }]
+            }
         });
+
     };
 })();
