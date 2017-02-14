@@ -11,8 +11,7 @@
         service.getAllCategories = _getAllCategories;
         service.getItemsForCategory = _getItemsForCategory;
 
-        
-        // returns a promise using $http service            
+
         function _getAllCategories () {
             return $http({
                 url: 'https://davids-restaurant.herokuapp.com/categories.json'
@@ -26,7 +25,15 @@
         };
         
         function _getItemsForCategory(categoryShortName) {
-
+            var address = "https://davids-restaurant.herokuapp.com/menu_items.json?category="
+                + categoryShortName;
+            return $http({
+                url: address
+            }).then(function success(response){
+                return response.data.menu_items;
+            }, function error(response){
+                return null;
+            });
         };
 
     };
