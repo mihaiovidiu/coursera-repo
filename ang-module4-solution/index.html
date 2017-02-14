@@ -12,6 +12,7 @@
                 <h1>Chinese Restaurant</h1>
                 <h2>Our menu</h2>
             </div>
+            <loading-spinner></loading-spinner>
             <ui-view></ui-view>
 
             <!-- Load libraries -->
@@ -21,6 +22,7 @@
             <!-- Load modules -->
             <script src="src/menuData/menuData.module.js"></script>                
             <script src="src/menuApp/menuApp.module.js"></script>
+            <script src="src/spinner/spinner.module.js"></script>
 
             <!-- Routes -->
             <script src="src/routes.js"></script>
@@ -31,7 +33,10 @@
             <!-- 'MenuApp' module artifacts -->
             <script src="src/menuApp/categories.component.js"></script>  
             <script src="src/menuApp/categoriesView.controller.js"></script>              
-            <script src="src/menuApp/itemsView.controller.js"></script>              
+            <script src="src/menuApp/itemsView.controller.js"></script>  
+
+            <!-- 'Spinner' module artifacts -->
+            <script src="src/spinner/loadingspinner.component.js"></script>                          
         </div>
     </body>
 </html>

@@ -1,0 +1,14 @@
+.loading-icon {
+    position: absolute;
+    top: 260px;
+    
+}
+
+table tr:nth-child(even) {
+  background-color: #E0DDD5;
+}
+
+.jumbotron {
+    color: #0C1426;
+    background-color: #CDA72F;
+}
