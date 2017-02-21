@@ -1,38 +1,43 @@
 <div class="container">
-    <form name="signupForm" class="col-sm-8 col-sm-offset-2" novalidate>
-        <div class="form-group">
-            <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" 
-                name="firstname" ng-model="signupCtrl.firstName" required>
-            <span ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">First name is required</span>
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
-                name="lastname" ng-model="signupCtrl.lastName" required>
-            <span ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">Last name is required</span>                
-        </div>
-        <div class="form-group">
-            <label for="emailAddress">Email address</label>
-            <input type="email" class="form-control" id="emailAddress" placeholder="Enter email"
-                name="emailaddress" ng-model="signupCtrl.email" required>
-            <span ng-if="signupForm.emailaddress.$error.required && signupForm.lastname.$touched">Email is required</span> 
-            <span ng-if="!signupForm.emailaddress.$error.required && signupForm.emailaddress.$invalid && signupForm.lastname.$touched">Email is invalid</span>               
-                
-        </div>
-        <div class="form-group">
-            <label for="telephone">Telephone</label>
-            <input class="form-control" type="tel" id="telephone" placeholder="Enter your phone: ###-###-####"
-                name="phone" ng-model="signupCtrl.phone" required pattern="(\d{3})-(\d{3})-(\d{4})">
-            <span ng-if="signupForm.phone.$error.required && signupForm.phone.$touched">Phone number is required</span>
-            <span ng-if="!signupForm.phone.$error.required && signupForm.phone.$invalid && signupForm.phone.$touched">Phone must be in format ###-###-####</span>
-        </div>
-        <div class="form-group">
-            <label for="favMenuItem">Favorite menu item</label>
-            <input type="text" class="form-control" id="favMenuItem" placeholder="Enter the favourite menu item"
-                name="favMenuitem" ng-model="signupCtrl.favMenuItem" required>
-            <span ng-if="signupForm.favMenuitem.$error.required && signupForm.favMenuitem.$touched">The favourite menu item is required</span>                
-        </div>
-        <button type="submit" class="btn btn-success" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.signUp()">Sign up</button>
-    </form>
+    <div class="row">
+        <form name="signupForm" class="col-sm-8 col-sm-offset-2" novalidate>
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter first name" 
+                    name="firstname" ng-model="signupCtrl.firstName" required>
+                <span ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">First name is required</span>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+                    name="lastname" ng-model="signupCtrl.lastName" required>
+                <span ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">Last name is required</span>                
+            </div>
+            <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input type="email" class="form-control" id="emailAddress" placeholder="Enter email"
+                    name="emailaddress" ng-model="signupCtrl.email" required>
+                <span ng-if="signupForm.emailaddress.$error.required && signupForm.lastname.$touched">Email is required</span> 
+                <span ng-if="!signupForm.emailaddress.$error.required && signupForm.emailaddress.$invalid && signupForm.lastname.$touched">Email is invalid</span>               
+                    
+            </div>
+            <div class="form-group">
+                <label for="telephone">Telephone</label>
+                <input class="form-control" type="tel" id="telephone" placeholder="Enter your phone: ###-###-####"
+                    name="phone" ng-model="signupCtrl.phone" required pattern="(\d{3})-(\d{3})-(\d{4})">
+                <span ng-if="signupForm.phone.$error.required && signupForm.phone.$touched">Phone number is required</span>
+                <span ng-if="!signupForm.phone.$error.required && signupForm.phone.$invalid && signupForm.phone.$touched">Phone must be in format ###-###-####</span>
+            </div>
+            <div class="form-group">
+                <label for="favMenuItem">Favorite menu item</label>
+                <input type="text" class="form-control" id="favMenuItem" placeholder="Enter the favourite menu item"
+                    name="favMenuitem" ng-model="signupCtrl.favMenuItem" required>
+                <span ng-if="signupForm.favMenuitem.$error.required && signupForm.favMenuitem.$touched">The favourite menu item is required</span>                
+            </div>
+            <button type="submit" class="btn btn-success" ng-disabled="signupForm.$invalid" ng-click="signupCtrl.signUp()">Sign up</button>
+        </form>
+    </div>
+    <div class="row">
+        <p id="submitInfo" class="col-sm-offset-2">{{signupCtrl.message}}</p>
+    </div>
 </div>

@@ -116,7 +116,7 @@ h3.menu-item-title {
 /* SIGN UP FORM*/
 
 .ng-touched.ng-valid {
-  border: 1px green solid;
+  border: 2px green solid;
 }
 
 .ng-touched.ng-invalid {
