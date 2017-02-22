@@ -1,9 +1,17 @@
 <div class="container">
     <div ng-if="infoCtrl.userInfo">
-        <h2>This is my info</h2>
-        <div>{{infoCtrl.userInfo}}</div>
+        <h2>User info</h2>
+        <p>First name: {{infoCtrl.userInfo.firstName}}</p>
+        <p>Last name: {{infoCtrl.userInfo.lastName}}</p>
+        <p>Phone: {{infoCtrl.userInfo.phone}}</p>
+        <p>Email: {{infoCtrl.userInfo.email}}</p>        
+        <p>Favourite menu item: {{infoCtrl.userInfo.menuItemName}}</p>   
+        <p>Description: {{infoCtrl.userInfo.menuItemDescription}}</p>
+        <img class="img-responsive" width="250" height="150" 
+            ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.userInfo.menuItemShortName}}.jpg" 
+            alt="{{infoCtrl.userInfo.menuItemName}}">  
     </div>
     <div ng-if="!infoCtrl.userInfo">
-        Not Signed Up Yet
+        Not Signed Up Yet <a class="btn btn-success" ui-sref="public.signup">Sign up Now!</a>
     </div>    
 </div>

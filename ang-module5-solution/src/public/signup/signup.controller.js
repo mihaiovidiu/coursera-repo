@@ -10,13 +10,12 @@
         $ctrl.message = "";
         $ctrl.signUp = function() {
             MenuService.getMenuItem($ctrl.favMenuItem).then(function(response) {
-                console.log(response);
                 var message = "";
                 if (response)
                 {
                     // firstName, lastName, email, phone, favMenuItem
                     InfoService.saveUserInfo($ctrl.firstName, $ctrl.lastName, $ctrl.email,
-                        $ctrl.phone, response.name, response.description);
+                        $ctrl.phone, response.name, response.short_name, response.description);
                     message = "Your information has been saved.";
                 }
                 else

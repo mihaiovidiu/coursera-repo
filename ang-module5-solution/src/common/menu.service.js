@@ -29,7 +29,6 @@ function MenuService($http, ApiPath) {
 
   service.getMenuItem = function (itemName) {
     return $http.get(ApiPath + '/menu_items/' + itemName + '.json').then(function successCallback(response){
-      console.log(response.data);
       return response.data; 
     }, function errorCallback(error){
       return null;

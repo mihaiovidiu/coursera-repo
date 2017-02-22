@@ -8,7 +8,8 @@ angular.module('public')
 function InfoService() {
   var service = this;
 
-  service.saveUserInfo = function(firstName, lastName, email, phone, menuItemName, menuItemDescription) {
+  service.saveUserInfo = function(firstName, lastName, email, phone, menuItemName, menuItemShortName, 
+    menuItemDescription) {
     service.userInfo = {};
 
     service.userInfo.firstName = firstName;
@@ -16,6 +17,7 @@ function InfoService() {
     service.userInfo.email = email;
     service.userInfo.phone = phone;
     service.userInfo.menuItemName = menuItemName;
+    service.userInfo.menuItemShortName = menuItemShortName;
     service.userInfo.menuItemDescription = menuItemDescription;
     
   };

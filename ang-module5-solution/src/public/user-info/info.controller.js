@@ -4,11 +4,12 @@
 angular.module('public')
 .controller('InfoController', InfoController);
 
-InfoController.$inject = ['userInfo'];
-function InfoController(userInfo) {
+InfoController.$inject = ['userInfo', 'ApiPath'];
+function InfoController(userInfo, ApiPath) {
   var $ctrl = this;
 
   $ctrl.userInfo = userInfo;
+  $ctrl.basePath = ApiPath;
 
 }
 
