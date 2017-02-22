@@ -4,8 +4,8 @@
     angular.module('public')
     .controller('SignupController', SignupController);
 
-    SignupController.$inject = ['MenuService'];
-    function SignupController(MenuService) {
+    SignupController.$inject = ['MenuService', 'InfoService'];
+    function SignupController(MenuService, InfoService) {
         var $ctrl = this;
         $ctrl.message = "";
         $ctrl.signUp = function() {
@@ -13,7 +13,12 @@
                 console.log(response);
                 var message = "";
                 if (response)
+                {
+                    // firstName, lastName, email, phone, favMenuItem
+                    InfoService.saveUserInfo($ctrl.firstName, $ctrl.lastName, $ctrl.email,
+                        $ctrl.phone, response.name, response.description);
                     message = "Your information has been saved.";
+                }
                 else
                 {
                     $ctrl.favMenuItem = "";
